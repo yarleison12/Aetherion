@@ -9,44 +9,17 @@ function login(e) {
   e.preventDefault();
 
   const usuario = document.getElementById('loginUsuario').value;
-  const pass = document.getElementById('loginPassword').value;
 
-  fetch('login.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `usuario=${encodeURIComponent(usuario)}&password=${encodeURIComponent(pass)}`
-  })
-  .then(res => res.json())
-  .then(data => {
-        console.log("Respuesta del servidor:", data);
-        if (data.status === 'success') {
-          Swal.fire({
-            icon: 'success',
-            title: '¡Bienvenido!',
-            text: `Hola, ${data.nombre}!`,
-            confirmButtonColor: '#8b5cf6'
-          }).then(() => {
-        window.location.href = 'proyecto.html';
-      });
-     
-     } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: data.mensaje,
-            confirmButtonColor: '#ef4444'
-          });
-        }
-      })
-      .catch(() => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'No se pudo conectar con el servidor.',
-          confirmButtonColor: '#ef4444'
-        });
-     });
-     }
+  Swal.fire({
+    icon: 'success',
+    title: '¡Bienvenido!',
+    text: `Hola, ${usuario}!`,
+    confirmButtonColor: '#8b5cf6'
+  }).then(() => {
+    window.location.href = 'proyecto.html';
+  });
+}
+// ⚠️ Este login no verifica credenciales. Solo se usa con fines de presentación/diseño.
 
 
    function registrar(e) {
