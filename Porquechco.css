@@ -1,0 +1,218 @@
+body {
+  background-color: #1a1a1a; /* A juego con el tono general */
+}
+.porque-section {
+  background-color: #1c1c1c;
+  color: #f5f5f5;
+  padding: 60px 30px;
+  line-height: 1.7;
+}
+
+.porque-section h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bloque-extenso {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #292929;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.bloque-extenso h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #ffd700;
+}
+
+.bloque-extenso p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.pie-porque {
+  text-align: center;
+  margin-top: 60px;
+  font-style: italic;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.nav-porque {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 10px 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-porque ul {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nav-porque a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-porque a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: #ffd700;
+  transition: width 0.3s ease;
+}
+
+.nav-porque a:hover::after,
+.nav-porque a.activo::after {
+  width: 100%;
+}
+
+.nav-porque a:hover {
+  color: #ffd700;
+  filter: brightness(1.4);
+}
+
+/* Estilo minimizado */
+.nav-porque.minimized {
+  padding: 2px 40px;
+  background: rgba(0, 0, 0, 0.15);
+  box-shadow: none;
+}
+
+
+.nav-porque.minimized:hover {
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-porque.minimized ul {
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes pulse-shadow {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 215, 0, 0.0);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 215, 0, 0.0);
+  }
+}
+
+.nav-porque.minimized:hover {
+  animation: pulse-shadow 1.5s infinite;
+}
+
+.tarjeta-beneficio {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-beneficio:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Clase unificada para bloques visuales */
+
+.card-choco {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #1e1e1e;
+  padding: 25px 30px;
+  border-left: 6px solid #ffd700;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-choco:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.footer-glass {
+  width: 100%;
+  padding: 30px 0;
+  background: rgba(0, 0, 0, 0.65); /* transparencia */
+  backdrop-filter: blur(6px);
+  color: #fff;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-glass .footer-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.footer-glass .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 15px 0;
+}
+
+.footer-glass .social-icons a img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: brightness(1.2);
+}
+
+.footer-glass .social-icons a:hover img {
+  transform: scale(1.2);
+  filter: brightness(2) drop-shadow(0 0 5px #ffd700);
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #f5f5f5;
+    color: #111;
+  }
+  .footer-glass {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}

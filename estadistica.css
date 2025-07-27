@@ -1,0 +1,225 @@
+body {
+  background-color: #0e0e0e; 
+}
+
+.nav-estadistica {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 10px 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-estadistica ul {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nav-estadistica a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-estadistica a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: #d60000;
+  transition: width 0.3s ease;
+}
+
+.nav-estadistica a:hover::after,
+.nav-estadistica a.activo::after {
+  width: 100%;
+}
+
+.nav-estadistica a:hover {
+  color: #d60000;
+  filter: brightness(1.4);
+}
+
+/* Estilo minimizado */
+.nav-estadistica.minimized {
+  padding: 2px 40px;
+  background: rgba(0, 0, 0, 0.15);
+  box-shadow: none;
+}
+
+
+.nav-estadistica.minimized:hover {
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-estadistica.minimized ul {
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes pulse-estadistica {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 0, 0, 0);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+.nav-estadistica.minimized:hover {
+  animation: pulse-estadistica 1.5s infinite;
+}
+/* datos */
+.panorama-section {
+  background-color: #121212;
+  color: #f80707;
+  padding: 60px 30px;
+  line-height: 1.7;
+}
+
+.panorama-section h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.estadistica {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #000000;
+  padding: 25px;
+  border-left: 6px solid #d60000;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3); /* transparencia */
+  box-shadow: 0 4px 12px ;
+}
+
+.estadistica h3 {
+  font-size: 1.6rem;
+  color: #ff4d4d;
+  margin-bottom: 10px;
+}
+
+.estadistica p {
+  font-size: 1.1rem;
+  color: #e5e5e5;
+}
+
+.pie-panorama {
+  text-align: center;
+  margin-top: 60px;
+  font-style: italic;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+
+.tarjeta-beneficio {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-beneficio:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+.footer-glass {
+  width: 100%;
+  padding: 30px 0;
+  background: rgba(0, 0, 0, 0.3); /* transparencia */
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-glass .footer-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.footer-glass .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 15px 0;
+}
+
+.footer-glass .social-icons a img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: brightness(1.2);
+}
+
+.footer-glass .social-icons a:hover img {
+  transform: scale(1.2);
+  filter: brightness(2) drop-shadow(0 0 5px #ffd700);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.7s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+.estadistica {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  max-height: 220px;
+  transition: max-height 0.5s ease, background-color 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.3); /* o el color que uses */
+}
+
+.estadistica.expandida {
+  background-color: rgba(20, 20, 20, 0.8); /* más suave que #1a1a1a */
+  box-shadow: 0 0 18px rgba(214, 0, 0, 0.6);
+  max-height: 1200px;
+  transition: max-height 0.8s ease-in-out, background-color 0.4s ease;
+}
+
+.estadistica .detalles-ocultos {
+  opacity: 0;
+  transform: translateY(10px);
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+.estadistica.expandida .detalles-ocultos {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 600px;
+  margin-top: 15px;
+}
+.fondo-oscuro {
+  background-color: rgba(0, 0, 0, 0.4); /* menos opaco */
+  backdrop-filter: blur(4px);          /* difumina el fondo */
+  transition: opacity 0.3s ease;
+}
